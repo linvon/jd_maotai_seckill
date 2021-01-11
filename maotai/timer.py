@@ -88,7 +88,7 @@ class Timer(object):
         while True:
             # 本地时间减去与京东的时间差，能够将时间误差提升到0.1秒附近
             # 具体精度依赖获取京东服务器时间的网络时间损耗
-            if self.local_time() - self.diff_time >= self.buy_time_ms - 10 * 1000:
+            if self.local_time() - self.diff_time >= self.buy_time_ms - 86400 * 1000 + 60 * 60 * 1000:
                 logger.info('时间到达，开始执行……')
                 break
             else:
